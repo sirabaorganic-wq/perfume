@@ -15,42 +15,38 @@ export default function Home() {
     <div className="min-h-screen bg-background text-foreground">
       <Header />
 
-      {/* 1. Hero Section — Cinematic Luxury */}
-      <section className="relative min-h-screen pt-32 pb-16 bg-ivory overflow-hidden flex items-center">
-        <div className="section-container relative z-10 w-full">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
-            {/* Left Content — Staggered Text Reveal */}
-            <div className="flex flex-col gap-6">
-              <div className="stagger-children">
-                <h1 className="font-serif font-bold text-4xl sm:text-5xl lg:text-6xl leading-tight text-balance">
-                  {content.hero.headline}
-                </h1>
-                <p className="text-lg sm:text-xl text-muted-foreground leading-relaxed">
-                  {content.hero.subheading}
-                </p>
-              </div>
-              <Link
-                href={`/products/${featured[0]?.slug || 'nefertum-no-8'}`}
-                className="px-6 py-3 bg-primary text-primary-foreground font-medium rounded hover-lift hover-glow transition-all w-fit"
-              >
-                {content.hero.cta}
-              </Link>
-            </div>
+      {/* 1. Hero Section — Cinematic Luxury with Full-Screen Video BG */}
+      <section className="relative min-h-screen overflow-hidden flex items-center justify-center">
+        {/* Video Background */}
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover z-0"
+        >
+          <source src="/perfumevideo1.mp4" type="video/mp4" />
+        </video>
 
-            {/* Right Image — contained, centred, no crop */}
-            {featured[0] && (
-              <div className="flex items-center justify-center">
-                <ParallaxImage
-                  src={featured[0].image}
-                  alt={featured[0].nameWithTM}
-                  width={460}
-                  height={520}
-                  intensity={8}
-                  className="drop-shadow-2xl w-full max-w-xs sm:max-w-sm lg:max-w-md h-auto object-contain"
-                />
-              </div>
-            )}
+        {/* Dark overlay for text readability */}
+        <div className="absolute inset-0 bg-black/50 z-10" />
+
+        {/* Centered Content */}
+        <div className="relative z-20 text-center px-6 max-w-3xl mx-auto flex flex-col items-center gap-6">
+          <div className="stagger-children">
+            <h1 className="font-serif font-bold text-4xl sm:text-5xl lg:text-6xl leading-tight text-balance text-white">
+              {content.hero.headline}
+            </h1>
+            <p className="text-lg sm:text-xl leading-relaxed text-white/80 mt-4">
+              {content.hero.subheading}
+            </p>
           </div>
+          <Link
+            href={`/products/${featured[0]?.slug || 'nefertum-no-8'}`}
+            className="mt-2 px-8 py-3 bg-primary text-primary-foreground font-medium rounded hover-lift hover-glow transition-all"
+          >
+            {content.hero.cta}
+          </Link>
         </div>
       </section>
 

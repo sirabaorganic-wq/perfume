@@ -26,11 +26,10 @@ export default function Header() {
 
   return (
     <header
-      className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-        isScrolled
+      className={`fixed top-0 w-full z-50 transition-all duration-300 ${isScrolled
           ? 'bg-background border-b border-border'
           : 'bg-transparent'
-      }`}
+        }`}
     >
       <div className="section-container flex items-center justify-between h-16">
         {/* Logo */}
@@ -45,7 +44,7 @@ export default function Header() {
               priority
             />
           </div>
-          <span className="text-sm font-serif font-bold tracking-wide text-foreground hidden sm:inline">
+          <span className="text-sm font-serif font-bold tracking-wide text-foreground">
             APHRODITE NEFERTUM™
           </span>
         </Link>
@@ -80,19 +79,16 @@ export default function Header() {
             aria-label="Toggle menu"
           >
             <span
-              className={`w-full h-0.5 bg-foreground transition-all ${
-                isMenuOpen ? 'rotate-45 translate-y-2' : ''
-              }`}
+              className={`w-full h-0.5 bg-foreground transition-all ${isMenuOpen ? 'rotate-45 translate-y-2' : ''
+                }`}
             />
             <span
-              className={`w-full h-0.5 bg-foreground transition-all ${
-                isMenuOpen ? 'opacity-0' : ''
-              }`}
+              className={`w-full h-0.5 bg-foreground transition-all ${isMenuOpen ? 'opacity-0' : ''
+                }`}
             />
             <span
-              className={`w-full h-0.5 bg-foreground transition-all ${
-                isMenuOpen ? '-rotate-45 -translate-y-2' : ''
-              }`}
+              className={`w-full h-0.5 bg-foreground transition-all ${isMenuOpen ? '-rotate-45 -translate-y-2' : ''
+                }`}
             />
           </button>
         </div>
