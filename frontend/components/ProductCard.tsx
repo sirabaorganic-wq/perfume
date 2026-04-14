@@ -12,7 +12,7 @@ export default function ProductCard({ product, variant = 'default' }: ProductCar
 
   return (
     <Link href={`/products/${product.slug}`}>
-      <div className={`group cursor-pointer hover-lift transition-all duration-300 ${isFeatured ? 'col-span-2' : ''}`}>
+      <div className={`group cursor-pointer transition-all duration-300 border border-border rounded-sm p-4 bg-background hover:border-primary hover:shadow-xl hover:-translate-y-1 hover:bg-parchment ${isFeatured ? 'col-span-2' : ''}`}>
         {/* Image Container */}
         <div className="relative overflow-hidden bg-parchment rounded-none mb-4 aspect-square border border-border">
           <Image

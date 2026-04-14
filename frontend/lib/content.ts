@@ -1,7 +1,7 @@
 export const content = {
   // Hero Section
   hero: {
-    headline: 'Find Your Number. Define Your Presence.',
+    headline: 'Find Your Choice. Define Your Presence.',
     subheading: 'Engineered for Indian Climate. Designed by Energy.',
     cta: 'Explore Nefertum No. 8'
   },

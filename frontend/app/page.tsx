@@ -365,6 +365,8 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {content.socialProof.quotes.map((quote, idx) => (
               <div key={idx} className="text-center">
+                <br />
+                <br />
                 <p className="text-lg font-serif italic text-foreground mb-4 leading-relaxed">
                   "{quote.text}"
                 </p>
