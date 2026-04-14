@@ -1,0 +1,250 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  /* Warm Editorial Luxury Palette */
+
+  /* ── Core Backgrounds ── */
+  --background: #F4EFE7;
+  --card: #F8F3EC;
+  --card-foreground: #221D18;
+  --popover: #F8F3EC;
+  --popover-foreground: #221D18;
+
+  /* ── Secondary Backgrounds ── */
+  --secondary: #ECE4D8;
+  --secondary-foreground: #221D18;
+
+  /* ── Foreground / Text ── */
+  --foreground: #221D18;
+
+  /* ── Primary — Gold ── */
+  --primary: #BC995B;
+  --primary-foreground: #FFFFFF;
+
+  /* ── Muted ── */
+  --muted: #ECE4D8;
+  --muted-foreground: #5F564B;
+
+  /* ── Accent — Cocoa Bronze ── */
+  --accent: #6B4A32;
+  --accent-foreground: #F4EFE7;
+
+  /* ── Destructive ── */
+  --destructive: #dc2626;
+  --destructive-foreground: #ffffff;
+
+  /* ── Borders & Inputs ── */
+  --border: #D8CCBC;
+  --input: #ECE4D8;
+  --ring: #BC995B;
+
+  /* ── Charts ── */
+  --chart-1: #BC995B;
+  --chart-2: #3F4638;
+  --chart-3: #6B4A32;
+  --chart-4: #9E8123;
+  --chart-5: #D8CCBC;
+
+  --radius: 0rem; /* Flat look for editorial */
+
+  /* ── Extended Brand Tokens ── */
+  --olive-charcoal: #3F4638;
+  --cocoa-bronze: #6B4A32;
+  --antique-gold: #9E8123;
+  --warm-ivory: #F4EFE7;
+  --champagne: #ECE4D8;
+  --parchment: #F8F3EC;
+}
+
+/* Removing deep dark mode override, keeping it unified warm minimal */
+.dark {
+  --background: #F4EFE7;
+  --foreground: #221D18;
+  --card: #F8F3EC;
+  --card-foreground: #221D18;
+  --popover: #F8F3EC;
+  --popover-foreground: #221D18;
+  --primary: #BC995B;
+  --primary-foreground: #FFFFFF;
+  --secondary: #ECE4D8;
+  --secondary-foreground: #221D18;
+  --muted: #ECE4D8;
+  --muted-foreground: #5F564B;
+  --accent: #6B4A32;
+  --accent-foreground: #F4EFE7;
+  --destructive: #dc2626;
+  --destructive-foreground: #ffffff;
+  --border: #D8CCBC;
+  --input: #ECE4D8;
+  --ring: #BC995B;
+}
+
+@theme inline {
+  --font-sans: 'Geist', 'Geist Fallback', sans-serif;
+  --font-mono: 'Geist Mono', 'Geist Mono Fallback', monospace;
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --radius-sm: var(--radius);
+  --radius-md: var(--radius);
+  --radius-lg: var(--radius);
+  --radius-xl: var(--radius);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    /* Soft noise for tactile paper feel */
+    background-image:
+      url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.7' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-serif tracking-wide;
+  }
+
+  .font-serif {
+    font-family: 'Playfair Display', Georgia, serif;
+  }
+}
+
+@layer components {
+
+  /* ══════════════════════════════════════════
+     LAYOUT HELPERS
+  ══════════════════════════════════════════ */
+  .section-container {
+    @apply max-w-7xl mx-auto px-6 sm:px-8 lg:px-12;
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  /* ══════════════════════════════════════════
+     BUTTON TREATMENTS
+  ══════════════════════════════════════════ */
+
+  .btn-gold {
+    background: #BC995B;
+    color: #FFFFFF;
+    border: none;
+    transition: background-color 0.4s ease;
+  }
+  .btn-gold:hover {
+    background: #9E8123;
+  }
+
+  .btn-gold-outline {
+    background: transparent;
+    color: #BC995B;
+    border: 1px solid #BC995B;
+    transition: background-color 0.4s ease;
+  }
+  .btn-gold-outline:hover {
+    background: rgba(188, 153, 91, 0.08);
+  }
+
+  /* ══════════════════════════════════════════
+     HOVER EFFECTS
+  ══════════════════════════════════════════ */
+
+  .hover-lift {
+    transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
+  }
+  .hover-lift:hover {
+    transform: translateY(-4px);
+  }
+
+  /* Soft diffused shadow instead of active glow */
+  .hover-glow {
+    transition: box-shadow 0.6s ease;
+  }
+  .hover-glow:hover {
+    box-shadow: 0 10px 30px rgba(34, 29, 24, 0.05);
+  }
+
+  /* ══════════════════════════════════════════
+     BACKGROUNDS
+  ══════════════════════════════════════════ */
+
+  .bg-ivory {
+    background-color: var(--warm-ivory);
+  }
+  .bg-champagne {
+    background-color: var(--champagne);
+  }
+  .bg-parchment {
+    background-color: var(--parchment);
+  }
+  .bg-olive {
+    background-color: var(--olive-charcoal);
+  }
+}
+
+/* ══════════════════════════════════════════
+   ANIMATIONS 
+══════════════════════════════════════════ */
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in {
+  animation: fadeIn 1s ease-out forwards;
+  opacity: 1;
+}
+
+.animate-slide-in-up {
+  animation: slideInUp 1s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+  opacity: 1;
+}
+
+/* ── Stagger children ── */
+.stagger-children > * {
+  opacity: 1;
+  animation: slideInUp 1s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
+
+.stagger-children > *:nth-child(1) { animation-delay: 0.1s; animation-fill-mode: both; }
+.stagger-children > *:nth-child(2) { animation-delay: 0.2s; animation-fill-mode: both; }
+.stagger-children > *:nth-child(3) { animation-delay: 0.3s; animation-fill-mode: both; }
+.stagger-children > *:nth-child(4) { animation-delay: 0.4s; animation-fill-mode: both; }
+.stagger-children > *:nth-child(5) { animation-delay: 0.5s; animation-fill-mode: both; }
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
